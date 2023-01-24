@@ -31,6 +31,58 @@ This project is a simple WhatsApp API that allows you to send messages to WhatsA
 - Add more functionality to the API such as sending media and documents
 - Add a way for the user can chat all member groups
 - Add a way for the user can add mass contact to groups
+
+WhatsApp Automation API  
+
+WhatsApp Automation API
+=======================
+
+  
+
+Endpoint: `/check_login`
+------------------------
+
+This endpoint is used to check if the user is logged in to WhatsApp Web.
+
+### Method: `GET`
+
+### Response:
+
+This endpoint will return a JSON object with the following structure:
+
+    {
+        "status": "logged in"
+    }
+    
+
+If the user is logged in, the "status" value will be "logged in". If the user is not logged in, the "status" value will be "not logged in". If an error occured while checking the connection, the "status" value will be "error" and it will include a "message" value with the error message.
+
+Endpoint: `/send_message`
+-------------------------
+
+### Method: `POST`
+
+#### Payload:
+
+    {
+        "contact": "6282\*\*72412",
+        "message": "Hello, this is a test message"
+    }
+    
+
+#### Description
+
+This endpoint is used to send a message to a specific contact on WhatsApp. The `contact` field should contain the phone number of the recipient in international format (with the country code included), and the `message` field should contain the message text that you want to send.
+
+#### Response:
+
+Upon a successful request, the API will return a `200 OK` status and the message will be sent to the specified contact. If there is an error, such as an invalid phone number or an error with the WhatsApp Web session, the API will return a `400 Bad Request` status with an error message.
+
+#### Example
+
+Sending a message to contact `62821***2412` with message text "Hello, this is a test message":
+
+    curl -X POST http://api-wa.my.id//send\_message -H "Content-Type: application/json" -d '{"contact": "628217\*\*\*2412", "message": "Hello, this is a test message"}'
 - Implement a way for the user to log out of WhatsApp Web
 - Add a way for the user to see their chat history
 - Add a way for the user to create groups and add members to the groups
