@@ -3,6 +3,16 @@
 ## Description
 This project is a simple WhatsApp API that allows you to send messages to WhatsApp numbers via a web interface. You can also check your login status and send messages to spesific numbers.
 
+## Features
+- QR code login
+- Check login status
+- Send a message
+
+![Checking](https://user-images.githubusercontent.com/73378179/214401853-a55166c4-4179-4d9e-a7eb-464ab5c63d35.PNG)
+![landing-page](https://user-images.githubusercontent.com/73378179/214401862-6a9d475e-36ff-4761-855d-1418f1376880.PNG)
+![QR-code](https://user-images.githubusercontent.com/73378179/214401864-6a61736f-4b40-4b1a-bd9d-7097ece08453.PNG)
+![welcome](https://user-images.githubusercontent.com/73378179/214401867-8e52371c-a06f-470c-a5f0-a1fc042937b8.PNG)
+
 ## Installation
 - Make sure you have Python and Flask installed on your machine
 - Clone the repository
