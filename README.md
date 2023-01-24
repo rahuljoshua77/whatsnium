@@ -29,6 +29,8 @@ This project is a simple WhatsApp API that allows you to send messages to WhatsA
 
 ## To-Do
 - Add more functionality to the API such as sending media and documents
+- Add a way for the user can chat all member groups
+- Add a way for the user can add mass contact to groups
 - Implement a way for the user to log out of WhatsApp Web
 - Add a way for the user to see their chat history
 - Add a way for the user to create groups and add members to the groups
