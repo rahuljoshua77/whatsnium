@@ -31,10 +31,11 @@ This project is a simple WhatsApp API that allows you to send messages to WhatsA
 - Add more functionality to the API such as sending media and documents
 - Add a way for the user can chat all member groups
 - Add a way for the user can add mass contact to groups
+- Implement a way for the user to log out of WhatsApp Web
+- Add a way for the user to see their chat history
+- Add a way for the user to create groups and add members to the groups
 
-WhatsApp Automation API  
-
-WhatsApp Automation API
+API Documentatio
 =======================
 
   
@@ -83,6 +84,3 @@ Upon a successful request, the API will return a `200 OK` status and the message
 Sending a message to contact `62821***2412` with message text "Hello, this is a test message":
 
     curl -X POST http://api-wa.my.id//send\_message -H "Content-Type: application/json" -d '{"contact": "628217\*\*\*2412", "message": "Hello, this is a test message"}'
-- Implement a way for the user to log out of WhatsApp Web
-- Add a way for the user to see their chat history
-- Add a way for the user to create groups and add members to the groups
