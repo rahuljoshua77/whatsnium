@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Waiting for WhatsApp Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    body {
+      background-color: #f5f5f5;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px #ccc;
+    }
+  </style>
+</head>
+<body onload="checkLogin()">
+  <div class="container text-center">
+    <h1>Please Wait</h1>
+    <p>We are checking your WhatsApp login status</p>
+    <span id="countdown">35</span> seconds left before redirect to login page
+    <p></p>
+
+    <img src="{{ url_for('static', filename='wait.jpg') }}" alt="Success Login" class="img-fluid" width="600px" height="300px">
+    <p></p>
+    <a href="/docs" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">API Docs</a>
+    <div id="connection-status"></div>
+  </div>
+  <script>
+    var timesRun = 0;
+    function checkLogin() {
+        setInterval(() => {
+            timesRun += 1;
+            if(timesRun === 30){
+                clearInterval(interval);
+            }
+            fetch("/check_login")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "logged in") {
+                        window.location.href = '/login';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("connection-status").innerHTML = "Error occured while checking connection.";
+                });
+        }, 1000);
+    }
+  </script>
+
+  <script>
+    // mengambil elemen dengan id "countdown"
+    var countdown = document.getElementById("countdown");
+
+    // membuat fungsi yang akan dijalankan setiap detik
+    function updateCountdown() {
+      // mengurangi waktu yang tersisa
+      var timeLeft = countdown.innerHTML;
+      timeLeft--;
+      countdown.innerHTML = timeLeft;
+
+      // jika waktu habis, redirect ke halaman login
+      if (timeLeft <= 0) {
+
+        window.location.href = '/qr';
+      }
+    }
+
+    // menjalankan fungsi setiap detik
+    setInterval(updateCountdown, 1000);
+  </script>
+  <script>
+    setTimeout(function() {
+      window.location.href = '/';
+    }, 30000);
+  </script>
+</body>
+</html>

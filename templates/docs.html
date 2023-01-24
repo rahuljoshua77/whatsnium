@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsApp Automation API</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">WhatsApp Automation API</h1>
+    <br>
+    <h2>Endpoint: <code>/check_login</code></h2>
+    <p>This endpoint is used to check if the user is logged in to WhatsApp Web.</p>
+    <h3>Method: <code>GET</code></h3>
+    <h3>Response:</h3>
+    <p>This endpoint will return a JSON object with the following structure:</p>
+    <pre>
+    {
+        "status": "logged in"
+    }
+    </pre>
+    <p>If the user is logged in, the "status" value will be "logged in". If the user is not logged in, the "status" value will be "not logged in". If an error occured while checking the connection, the "status" value will be "error" and it will include a "message" value with the error message.</p>
+    <h2>Endpoint: <code>/send_message</code></h2>
+    <h3>Method: <code>POST</code></h3>
+    <h4>Payload:</h4>
+    <pre>
+    {
+        "contact": "6282**72412",
+        "message": "Hello, this is a test message"
+    }
+    </pre>
+    <h4>Description</h4>
+    <p>This endpoint is used to send a message to a specific contact on WhatsApp. The <code>contact</code> field should contain the phone number of the recipient in international format (with the country code included), and the <code>message</code> field should contain the message text that you want to send.</p>
+    <h4>Response:</h4>
+    <p>Upon a successful request, the API will return a <code>200 OK</code> status and the message will be sent to the specified contact. If there is an error, such as an invalid phone number or an error with the WhatsApp Web session, the API will return a <code>400 Bad Request</code> status with an error message.</p>
+    <h4>Example</h4>
+    <p>Sending a message to contact <code>62821***2412</code> with message text "Hello, this is a test message":</p>
+    <pre>
+    curl -X POST http://api-wa.my.id//send_message -H "Content-Type: application/json" -d '{"contact": "628217***2412", "message": "Hello, this is a test message"}'
+    </pre>
+</div>
+</body>
+</html>

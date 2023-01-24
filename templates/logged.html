@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsApp Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="text-center">
+      <h1 class="text-success">Welcome to WhatsApp Automation API</h1>
+      <p>You are logged in to WhatsApp Web.</p>
+       <img src="{{ url_for('static', filename='4207.jpg') }}" alt="Success Login" class="img-fluid" width="600px" height="300px">
+       <div class="text-center" style="margin-top: 20px;">
+
+      <a href="/wait" class="btn btn-secondary">Check login status!</a>
+      <p></p>
+      <a href="/docs" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">API Docs</a>
+      <p></p>
+      <form action="/logout" method="post">
+        <button type="submit" class="btn btn-danger">Logout</button>
+      </form>
+    </div>
+    </div>
+  </div>
+</body>
+</html>
