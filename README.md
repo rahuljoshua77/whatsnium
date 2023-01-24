@@ -35,7 +35,7 @@ This project is a simple WhatsApp API that allows you to send messages to WhatsA
 - Add a way for the user to see their chat history
 - Add a way for the user to create groups and add members to the groups
 
-API Documentatio
+API Documentation
 =======================
 
   
