@@ -1,4 +1,4 @@
-# Project Title: Whatsnium
+# Whatsnium
 
 ## Description
 This project is a simple WhatsApp API that allows you to send messages to WhatsApp numbers (now just via API) via a web interface. You can also check your login status and send messages to spesific numbers.
